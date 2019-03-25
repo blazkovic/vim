@@ -1,0 +1,17 @@
+ /*
+ * Reduce height of window header (title?) bars.
+ * Seems enough to specify padding, no need to repeat
+ *   padding-left padding-right padding-top padding-bottom
+ * nor it seems necessary to even mention
+ *   margin-top margin-bottom
+ */
+
+.default-decoration {
+    min-height: 0px;
+    padding: 3px;
+}
+
+.default-decoration .titlebutton {
+    min-height: 0px;
+    padding: 0px;
+}

@@ -24,9 +24,12 @@ rm -r ~/Public
 rm -r ~/Videos
 rm -r ~/Templates
 rm ~/examples.desktop
+rm ~/.config/gtk-3.0/gtk.css
+ln -s ~/.vim/gtk.css ~/.config/gtk-3.0/gtk.css
 
 if [ -f ~/.config/user-dirs.dirs ]; then
     sed -i 's#XDG_TEMPLATES_DIR="$HOME/#XDG_TEMPLATES_DIR="$HOME/.config/.templates#g' ~/.config/user-dirs.dirs
     mkdir ~/.config/.templates
     touch ~/.config/.templates/Document
 fi
+echo "*** FINISHED ***"
