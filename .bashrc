@@ -15,7 +15,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 
 force_color_prompt=yes
 source /usr/share/bash-completion/completions/git
-if [-f source ~/.sdb/.sdb-completion.bash]; then
+if [ -f /usr/share/bash-completion/completions/git ]; then
     source /usr/share/bash-completion/completions/git
 fi
 alias grep="grep --color=auto"
