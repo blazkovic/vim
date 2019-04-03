@@ -30,7 +30,7 @@ su ${SUDO_USER} -c "gsettings set org.gnome.nautilus.desktop trash-icon-visible 
 su ${SUDO_USER} -c "gsettings set org.gnome.nautilus.desktop home-icon-visible false"
 
 if [ -f ~/.config/user-dirs.dirs ]; then
-    sed -i 's#XDG_TEMPLATES_DIR="$HOME/#XDG_TEMPLATES_DIR="$HOME/.config/.templates#g' ~/.config/user-dirs.dirs
+    sed -i 's#XDG_TEMPLATES_DIR="$HOME/"#XDG_TEMPLATES_DIR="$HOME/.config/.templates"#g' ~/.config/user-dirs.dirs
     mkdir ~/.config/.templates
     touch ~/.config/.templates/Document
 fi
