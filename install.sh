@@ -5,7 +5,7 @@ apt-get update && apt-get install -y \
     gitk \
     cmake \
     vim-gnome \
-    gnome-session-flashback \
+    gnome-session-flashback
 
 cd ~/.vim
 
@@ -26,8 +26,8 @@ rm -r ~/Templates
 rm ~/examples.desktop
 rm ~/.config/gtk-3.0/gtk.css
 ln -s ~/.vim/gtk.css ~/.config/gtk-3.0/gtk.css
-gsettings set org.gnome.nautilus.desktop trash-icon-visible false
-gsettings set org.gnome.nautilus.desktop home-icon-visible false
+su ${SUDO_USER} -c "gsettings set org.gnome.nautilus.desktop trash-icon-visible false"
+su ${SUDO_USER} -c "gsettings set org.gnome.nautilus.desktop home-icon-visible false"
 
 if [ -f ~/.config/user-dirs.dirs ]; then
     sed -i 's#XDG_TEMPLATES_DIR="$HOME/#XDG_TEMPLATES_DIR="$HOME/.config/.templates#g' ~/.config/user-dirs.dirs
