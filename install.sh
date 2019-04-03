@@ -6,6 +6,8 @@ apt-get update && apt-get install -y \
     cmake \
     vim-gnome \
     gnome-session-flashback
+apt autoremove --purge snapd gnome-software-plugin-snap -y
+rm -rf ~/snap
 
 cd ~/.vim
 
