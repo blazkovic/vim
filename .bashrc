@@ -49,6 +49,9 @@ plantuml()
     java -jar /opt/plantUML.jar "$1" && xdg-open ${1%.*}.png
 }
 
+# Show current path in terminal title 
+PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+
 # Enable programmable sdb completion features.
 if [ -f ~/.sdb/.sdb-completion.bash ]; then
     source ~/.sdb/.sdb-completion.bash
