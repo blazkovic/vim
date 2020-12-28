@@ -1,39 +1,32 @@
-apt-get update && apt-get install -y \
-    git \
-    vim \
-    htop \
-    gitk \
-    cmake \
-    vim-gnome \
-    gnome-session-flashback
-apt autoremove --purge snapd gnome-software-plugin-snap -y
-rm -rf ~/snap
+sudo apt-get update && sudo apt-get -y update && sudo apt-get install -y git vim htop gitk cmake gnome-session-flashback
+
+test -d ~/.vim && rm -rf .vim
+
+git clone https://github.com/blazkovic/vim.git ~/.vim
 
 cd ~/.vim
 
 git config user.email "blazkovic"
 git config user.name "blazkovic"
 
-rm ~/.bashrc
-rm ~/.vimrc
+test -e ~/.bashrc && rm ~/.bashrc
+test -e ~/.vimrc && rm ~/.vimrc
 ln -s ~/.vim/.vimrc ~/.vimrc
 ln -s ~/.vim/.bashrc ~/.bashrc
-rm -r ~/Documents
-rm -r ~/Downloads
-rm -r ~/Music
-rm -r ~/Pictures
-rm -r ~/Public
-rm -r ~/Videos
-rm -r ~/Templates
-rm ~/examples.desktop
-rm ~/.config/gtk-3.0/gtk.css
-ln -s ~/.vim/gtk.css ~/.config/gtk-3.0/gtk.css
-su ${SUDO_USER} -c "gsettings set org.gnome.nautilus.desktop trash-icon-visible false"
-su ${SUDO_USER} -c "gsettings set org.gnome.nautilus.desktop home-icon-visible false"
+test -d ~/Documents && rm -r ~/Documents
+test -d ~/Downloads && rm -r ~/Downloads
+test -d ~/Music && rm -r ~/Music
+test -d ~/Pictures && rm -r ~/Pictures
+test -d ~/Public && rm -r ~/Public
+test -d ~/Videos && rm -r ~/Videos
+test -d ~/Templates && rm -r ~/Templates
+test -e ~/.config/gtk-3.0/gtk.css && rm ~/.config/gtk-3.0/gtk.css
 
-if [ -f ~/.config/user-dirs.dirs ]; then
-    sed -i 's#XDG_TEMPLATES_DIR="$HOME/"#XDG_TEMPLATES_DIR="$HOME/.config/.templates"#g' ~/.config/user-dirs.dirs
-    mkdir ~/.config/.templates
-    touch ~/.config/.templates/Document
-fi
-echo "*** FINISHED ***"
+ln -s ~/.vim/gtk.css ~/.config/gtk-3.0/gtk.css
+
+echo 'file:///' > ~/.config/gtk-3.0/bookmarks
+
+gsettings set org.gnome.gnome-flashback.desktop.icons show-home false
+gsettings set org.gnome.gnome-flashback.desktop.icons show-trash false
+gsettings set org.gnome.nautilus.preferences always-use-location-entry true
+gsettings set org.gnome.desktop.privacy remember-recent-files false
