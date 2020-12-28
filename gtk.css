@@ -1,17 +1,54 @@
- /*
- * Reduce height of window header (title?) bars.
- * Seems enough to specify padding, no need to repeat
- *   padding-left padding-right padding-top padding-bottom
- * nor it seems necessary to even mention
- *   margin-top margin-bottom
- */
-
-.default-decoration {
-    min-height: 0px;
-    padding: 3px;
+headerbar {
+    min-height: 15px;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
-.default-decoration .titlebutton {
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+terminal-window button {
+  min-height: 0px;
+  max-height: 0px;
+  min-width: 0px;
+  max-width: 0px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+terminal-window arrow {
     min-height: 0px;
+    max-height: 0px;
+    min-width: 0px;
+    max-width: 0px;
     padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+terminal-window tabs {
+    min-height: 10px;
+    max-height: 10px;
+}
+
+terminal-window notebook tab {
+    color: black;
+    background-color: #888A85;
+    margin-left: 0px;
+    margin-right: 1px;
+    padding-left: 0px;
+    padding-right: 0px;
+    min-height: 10px;
+    max-height: 10px;
+}
+
+terminal-window notebook tab:checked {
+    color: black;
+    background-color: #f0f0f0;
 }
