@@ -1,4 +1,4 @@
-sudo apt-get update && sudo apt-get -y update && sudo apt-get install -y git vim htop gitk cmake gnome-session-flashback
+sudo apt-get update && sudo apt-get -y update && sudo apt-get install -y git vim htop gitk cmake gnome-session-flashback light-themes
 
 test -d ~/.vim && rm -rf .vim
 
@@ -30,3 +30,5 @@ gsettings set org.gnome.gnome-flashback.desktop.icons show-home false
 gsettings set org.gnome.gnome-flashback.desktop.icons show-trash false
 gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 gsettings set org.gnome.desktop.privacy remember-recent-files false
+gsettings set org.gnome.desktop.interface icon-theme ubuntu-mono-dark
+gsettings set org.gnome.desktop.interface gtk-theme Ambiance
