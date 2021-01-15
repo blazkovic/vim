@@ -8,6 +8,7 @@ cd ~/.vim
 
 git config user.email "blazkovic"
 git config user.name "blazkovic"
+git config --global core.editor "vim"
 
 test -e ~/.bashrc && rm ~/.bashrc
 test -e ~/.vimrc && rm ~/.vimrc
@@ -32,3 +33,10 @@ gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 gsettings set org.gnome.desktop.interface icon-theme ubuntu-mono-dark
 gsettings set org.gnome.desktop.interface gtk-theme Ambiance
+
+
+dd if=/dev/zero of=~/.swap count=1K bs=10M
+mkswap ~/.swap
+sudo chown root:root ~/.swap
+sudo chmod 600 ~/.swap
+sudo swapon ~/.swap
