@@ -34,9 +34,10 @@ gsettings set org.gnome.desktop.privacy remember-recent-files false
 gsettings set org.gnome.desktop.interface icon-theme ubuntu-mono-dark
 gsettings set org.gnome.desktop.interface gtk-theme Ambiance
 
-
-dd if=/dev/zero of=~/.swap count=1K bs=10M
-mkswap ~/.swap
-sudo chown root:root ~/.swap
-sudo chmod 600 ~/.swap
-sudo swapon ~/.swap
+sudo swapoff /swapfile
+sudo rm /swapfile
+sudo dd if=/dev/zero of=/swapfile count=1K bs=10M
+sudo mkswap /swapfile
+sudo chown root:root /swapfile
+sudo chmod 600 /swapfile
+sudo swapon /swapfile
